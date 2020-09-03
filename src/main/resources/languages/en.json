@@ -1,0 +1,64 @@
+{
+    "home": {
+        "index": {
+            "signInTitle": "Sign in",
+            "signInDescription": "Touch here to log in!",
+            "logOutTitle": "Going out ?",
+            "logOutDescription": "Touch here to log out!"
+        }
+    },
+    "loggedIn": {
+        "loggedIn": {
+            "title": "Logged in",
+            "loggedInMessage": " Welcome, "
+        }
+    },
+    "loggedOut": {
+        "loggedOut": {
+            "title": "Logged out",
+            "loggedOutMessage": " is now logged out!"
+        }
+    },
+    "logList": {
+        "logList": {
+            "title": "list of Logs",
+            "selectLogLabel": "Choose a time period",
+            "employeeFormButton": "submit",
+            "firstNameColhead": "first name",
+            "lastNameColhead": "last name",
+            "companyColhead": "company",
+            "licencePlateColhead": "licence plate",
+            "contactColhead": "contact",
+            "dateColhead": "date",
+            "timeInColhead": "Arrival",
+            "timeOutColhead": "Exit"
+        }
+    },
+    "logOut": {
+        "logOut": {
+            "title": "Log out",
+            "pageTitle": "Please enter your informations to log out",
+            "firstNameLabel": "Enter your first name :",
+            "lastNameLabel": "Enter your last name :",
+            "submitButton": "Submit"
+        }
+    },
+    "signIn": {
+        "signIn": {
+            "title": "Sign in!",
+            "pageTitle": "Please enter your informations to log in",
+            "firstNameLabel": "Enter your first name :",
+            "lastNameLabel": "Enter your last name :",
+            "companyLabel": "*Enter the name of your company (optional) :",
+            "licencePlateLabel": "*Enter your licence plate (optional) :",
+            "gdpr": "You consent to the storage of your sign-in data",
+            "contactLabel": "*Enter the first name of the Westpole employee you are visting (optional) :",
+            "errorFirstName": "First name must be between 2 and 16 characters, and can't be null",
+            "errorLastName": "First name must be between 2 and 40 characters, and can't be null",
+            "errorCompany": "Company must be 40 characters or less",
+            "errorLicencePlate": "Licence plate must be 10 characters or less",
+            "errorContactName": "Contact name must be 60 or less characters",
+            "errorGdpr": "You must consent to these terms to continue"
+        }
+    }
+}

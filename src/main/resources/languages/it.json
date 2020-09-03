@@ -1,0 +1,64 @@
+{
+    "home": {
+        "index": {
+            "signInTitle": "Accedi",
+            "signInDescription": "Tocca qui per accedere",
+            "logOutTitle": "Uscire?",
+            "logOutDescription": "Tocca qui per uscire!"
+        }
+    },
+    "loggedIn": {
+        "loggedIn": {
+            "title": "Loggato",
+            "LoggedInMessage": " è ora loggato!"
+        }
+    },
+    "loggedOut": {
+        "loggedOut": {
+            "title": "Logged out",
+            "loggedOutMessage": " è ora loggato!"
+        }
+    },
+    "logList": {
+        "logList": {
+            "title": "elenco dei tronchi",
+            "selectLogLabel": "Scegliere un periodo di tempo",
+            "employeeFormButton": "sottomettere",
+            "firstNameColhead": "nome di battesimo",
+            "lastNameColhead": "cognome",
+            "companyColhead": "compagnia",
+            "licencePlateColhead": "targa",
+            "contactColhead": "contatto",
+            "dateColhead": "data",
+            "timeInColhead": "Arrivo",
+            "timeOutColhead": "Uscita"
+        }
+    },
+    "logOut": {
+        "logOut": {
+            "title": "Log out",
+            "pageTitle": "Si prega di inserire i propri dati per effettuare il logout",
+            "firstNameLabel": "Inserisci il tuo nome di battesimo :",
+            "lastNameLabel": "Inserisci il tuo cognome :",
+            "submitButton": "Submit"
+        }
+    },
+    "signIn": {
+        "signIn": {
+            "title": "Accedi!",
+            "pageTitle": "Inserisci i tuoi dati per effettuare il login",
+            "firstNameLabel": "Inserisci il tuo nome di battesimo :",
+            "lastNameLabel": "Inserisci il tuo cognome :",
+            "companyLabel": "*Inserisci il nome della tua azienda (opzionale) :",
+            "licensePlateLabel": "*Inserisci la tua targa (opzionale) :",
+            "gdpr": "Acconsentite alla memorizzazione dei vostri dati di accesso",
+            "contactLabel": "*Inserire il nome del dipendente Westpole che si sta vistando (opzionale) :",
+            "errorFirstName": "Il nome deve essere compreso tra 2 e 16 caratteri e non può essere nullo",
+            "errorLastName": "Il nome deve essere compreso tra 2 e 40 caratteri, e non può essere nullo",
+            "errorCompany": "L'azienda deve essere di 40 caratteri o meno",
+            "errorLicencePlate": "La targa deve essere di 10 caratteri o meno",
+            "errorContactName": "Il nome del contatto deve essere di 60 caratteri o meno",
+            "errorGdpr": "Devi acconsentire a questi termini per continuare"
+        }
+    }
+}

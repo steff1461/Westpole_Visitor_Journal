@@ -1,0 +1,64 @@
+{
+    "home": {
+        "index": {
+            "signInTitle": "Anmelden",
+            "signInDescription": "Zum Einloggen hier berühren!",
+            "logOutTitle": "Ausgehen?",
+            "logOutDescription": "Hier berühren, um sich auszuloggen!"
+        }
+    },
+    "loggedIn": {
+        "loggedIn": {
+            "Title": "Angemeldet",
+            "loggedInMessage": " ist jetzt eingeloggt!"
+        }
+    },
+    "loggedOut": {
+        "loggedOut": {
+            "Title": "Ausgeloggt",
+            "loggedOutMessage": " ist jetzt ausgeloggt!"
+        }
+    },
+    "logList": {
+        "logList": {
+            "Title": "Liste der Protokolle",
+            "selectLogLabel": "Wählen Sie einen Zeitraum",
+            "employeeFormButton": "abschicken",
+            "firstNameColhead": "Vorname",
+            "lastNameColhead": "Nachname",
+            "companyColhead": "Unternehmen",
+            "licensePlateColhead": "Nummernschild",
+            "contactColhead": "Kontakt",
+            "dateColhead": "Datum",
+            "timeInColhead": "Ankunft",
+            "timeOutColhead": "Exit"
+        }
+    },
+    "logOut": {
+        "logOut": {
+            "Title": "Abmelden",
+            "pageTitle": "Bitte geben Sie Ihre Daten ein, um sich abzumelden",
+            "firstNameLabel": "Geben Sie Ihren Vornamen ein:",
+            "lastNameLabel": "Geben Sie Ihren Nachnamen ein:",
+            "submitButton": "Einreichen"
+        }
+    },
+    "signIn": {
+        "signIn": {
+            "Title": "Tragen Sie sich ein!",
+            "pageTitle": "Bitte geben Sie Ihre Informationen ein, um sich anzumelden",
+            "firstNameLabel": "Geben Sie Ihren Vornamen ein:",
+            "lastNameLabel": "Geben Sie Ihren Nachnamen ein:",
+            "companyLabel": "*Geben Sie den Namen Ihres Unternehmens ein (fakultativ) :",
+            "licensePlateLabel": "*Geben Sie Ihr Nummernschild ein (fakultativ) :",
+            "gdpr": "Sie stimmen der Speicherung Ihrer Anmeldedaten zu",
+            "contactLabel": "*Geben Sie den Vornamen des Mitarbeiters aus Westpole ein, bei dem Sie zu Gast sind (fakultativ) :",
+            "errorFirstName": "Vorname muss zwischen 2 und 16 Zeichen lang sein und kann nicht null sein",
+            "errorLastName": "Vorname muss zwischen 2 und 40 Zeichen lang sein und kann nicht null sein",
+            "errorCompany": "Firma muss aus 40 Zeichen oder weniger bestehen",
+            "errorLicencePlate": "Nummernschild muss höchstens 10 Zeichen lang sein",
+            "errorContactName": "Kontaktname muss 60 oder weniger Zeichen lang sein",
+            "errorGdpr": "Sie müssen diesen Bedingungen zustimmen, um fortzufahren"
+        }
+    }
+}
