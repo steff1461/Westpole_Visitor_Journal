@@ -15,11 +15,18 @@ public abstract class BaseRepo<T> implements IRepository<T> {
     private CriteriaQuery<T> query;
     private Root<T> root;
 
-
     public BaseRepo(Class<T> type) {
 
         this.type = type;
+    }
 
+    @Override
+    public void merge(T entity) {
+
+        EntityManager manager = UtilsHiber.entityManagerInstance();
+        manager.getTransaction().begin();
+        manager.merge(entity);
+        manager.getTransaction().commit();
     }
 
     @Override
@@ -42,9 +49,7 @@ public abstract class BaseRepo<T> implements IRepository<T> {
 
         manager.getTransaction().begin();
         List<T> visitors = manager.createQuery(query).getResultList();
-        visitors.forEach(manager::detach);
         manager.getTransaction().commit();
-        manager.close();
         return visitors;
     }
 
@@ -70,7 +75,6 @@ public abstract class BaseRepo<T> implements IRepository<T> {
         T tempEntity = findOne(id);
         if (manager.contains(tempEntity)) manager.remove(tempEntity);
         manager.getTransaction().commit();
-
     }
 
     @Override
@@ -80,29 +84,5 @@ public abstract class BaseRepo<T> implements IRepository<T> {
         manager.getTransaction().begin();
         manager.merge(entity);
         manager.getTransaction().commit();
-    }
-
-    public CriteriaBuilder getCriteriaBuilder() {
-        return criteriaBuilder;
-    }
-
-    public void setCriteriaBuilder(CriteriaBuilder criteriaBuilder) {
-        this.criteriaBuilder = criteriaBuilder;
-    }
-
-    public CriteriaQuery<T> getQuery() {
-        return query;
-    }
-
-    public void setQuery(CriteriaQuery<T> query) {
-        this.query = query;
-    }
-
-    public Root<T> getRoot() {
-        return root;
-    }
-
-    public void setRoot(Root<T> root) {
-        this.root = root;
     }
 }

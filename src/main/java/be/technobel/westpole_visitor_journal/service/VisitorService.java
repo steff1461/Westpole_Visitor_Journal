@@ -1,8 +1,10 @@
 package be.technobel.westpole_visitor_journal.service;
 
 import be.technobel.westpole_visitor_journal.repository.VisitorRepo;
-import be.technobel.westpole_visitor_journal.service.mapper.VisitorMapper;
+import be.technobel.westpole_visitor_journal.repository.entity.StoredVisitorEntity;
 import be.technobel.westpole_visitor_journal.service.model.VisitorDto;
+import be.technobel.westpole_visitor_journal.utils.mapper.StoredVisitorMapper;
+import be.technobel.westpole_visitor_journal.utils.mapper.VisitorMapper;
 import io.vertx.core.json.JsonObject;
 
 import java.time.DayOfWeek;
@@ -11,24 +13,42 @@ import java.time.temporal.IsoFields;
 import java.time.temporal.TemporalAdjusters;
 import java.time.temporal.TemporalField;
 import java.time.temporal.WeekFields;
-import java.util.Comparator;
 import java.util.Locale;
 
 public class VisitorService {
 
-    private final VisitorRepo repository;
+    private final VisitorRepo repository = new VisitorRepo();
 
     public VisitorService() {
 
-        repository = new VisitorRepo();
+
     }
 
-    public String createNewVisitor(JsonObject object) {
+    //POST
 
-        VisitorDto dTo = VisitorMapper.mapFromJson(object);
-        repository.create(VisitorMapper.toEntity(dTo));
+    public String signOutByName(JsonObject object){
+
+        if (repository.signOutByName(object)) return object.getString("lName");
+        else return "NONE";
+    }
+
+    public String signOutVisitor(JsonObject object) {
+
+        if (repository.signOutVisitor(object)) return object.getString("fName");
+        else return "NONE";
+
+    }
+
+
+    public String createNewVisitor( StoredVisitorEntity svEntity,String contactName) {
+
+        VisitorDto dTo = VisitorMapper.mapFromStoredV(StoredVisitorMapper.toDto(svEntity));
+        dTo.setContactName(contactName);
+        repository.merge(VisitorMapper.toEntity(dTo,svEntity));
         return dTo.getfName();
     }
+
+    //GET
 
     public StringBuilder findAll() {
 
@@ -37,7 +57,7 @@ public class VisitorService {
 
         repository.findAll()
                 .stream()
-                .map(VisitorMapper::toDto).sorted(Comparator.comparing(VisitorDto::getCurDate).reversed())
+                .map(VisitorMapper::toDto)
                 .map(VisitorMapper::mapAsJson)
                 .forEach(s -> sBuilder.append(s).append(","));
 
@@ -53,7 +73,7 @@ public class VisitorService {
 
         repository.findAllByMonth(date)
                 .stream()
-                .map(VisitorMapper::toDto).sorted(Comparator.comparing(VisitorDto::getCurDate))
+                .map(VisitorMapper::toDto)
                 .map(VisitorMapper::mapAsJson)
                 .forEach(s -> sBuilder.append(s).append(","));
 
@@ -70,7 +90,7 @@ public class VisitorService {
 
         repository.findAllByWeek(findStartingWeek(date))
                 .stream()
-                .map(VisitorMapper::toDto).sorted(Comparator.comparing(VisitorDto::getCurDate))
+                .map(VisitorMapper::toDto)
                 .map(VisitorMapper::mapAsJson)
                 .forEach(s -> sBuilder.append(s).append(","));
 
@@ -87,7 +107,7 @@ public class VisitorService {
 
         repository.findAllByDay(date)
                 .stream()
-                .map(VisitorMapper::toDto).sorted(Comparator.comparing(VisitorDto::getInTime))
+                .map(VisitorMapper::toDto)
                 .map(VisitorMapper::mapAsJson)
                 .forEach(s -> sBuilder.append(s).append(","));
 
@@ -113,6 +133,22 @@ public class VisitorService {
         return sBuilder;
     }
 
+
+    public StringBuilder findAllByCompany(String companyName) {
+        StringBuilder sBuilder = new StringBuilder();
+        sBuilder.append("[");
+
+        repository.findAllByCompany(companyName)
+                .stream()
+                .map(VisitorMapper::toDto)
+                .map(VisitorMapper::mapAsJson)
+                .forEach(s -> sBuilder.append(s).append(","));
+
+        sBuilder.deleteCharAt(sBuilder.length() - 1);
+        sBuilder.append("]");
+        return sBuilder;
+    }
+
     private LocalDate findStartingWeek(LocalDate date) {
 
         TemporalField woy = WeekFields.of(Locale.getDefault()).weekOfWeekBasedYear();
@@ -123,10 +159,5 @@ public class VisitorService {
                 .with(TemporalAdjusters.previousOrSame(DayOfWeek.MONDAY));
     }
 
-    public String signOutVisitor(JsonObject object) {
 
-        if (repository.signOutVisitor(object)) return object.getString("fName");
-        else return "NONE";
-
-    }
 }

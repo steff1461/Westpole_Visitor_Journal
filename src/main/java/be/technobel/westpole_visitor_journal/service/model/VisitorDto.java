@@ -45,7 +45,6 @@ public class VisitorDto {
     }
 
     public String getfName() {
-
         return fName;
     }
 
@@ -56,7 +55,6 @@ public class VisitorDto {
     }
 
     public String getlName() {
-
         return lName;
     }
 
@@ -66,32 +64,17 @@ public class VisitorDto {
         return this;
     }
 
-    public String getlPlate() {
-
-        return lPlate;
-    }
-
-    public VisitorDto setlPlate(String lPlate) {
-
-        if (lPlate != null) this.lPlate = lPlate;
-        else this.lPlate = "NONE";
-        return this;
-    }
-
     public String getCompanyName() {
-
         return companyName;
     }
 
     public VisitorDto setCompanyName(String companyName) {
 
-        if (companyName != null) this.companyName = companyName;
-        else this.companyName = "NONE";
+        this.companyName = companyName;
         return this;
     }
 
     public String getContactName() {
-
         return contactName;
     }
 
@@ -103,7 +86,6 @@ public class VisitorDto {
     }
 
     public String getCurDate() {
-
         return curDate;
     }
 
@@ -113,27 +95,34 @@ public class VisitorDto {
         return this;
     }
 
-    public String getInTime() {
+    public String getlPlate() {
+        return lPlate;
+    }
 
+    public VisitorDto setlPlate(String lPlate) {
+
+        this.lPlate = lPlate;
+        return this;
+    }
+
+    public String getInTime() {
         return inTime;
     }
 
     public VisitorDto setInTime(LocalTime inTime) {
 
         this.inTime = inTime.toString();
-        System.out.println(inTime);
         return this;
     }
 
     public String getOutTime() {
-
         return outTime;
     }
 
     public VisitorDto setOutTime(LocalTime outTime) {
 
-       if (outTime!=null)this.outTime=outTime.toString();
-       else this.outTime="NONE";
+        if (outTime != null) this.outTime = outTime.toString();
+        else this.outTime = "NONE";
 
         return this;
     }

@@ -4,6 +4,8 @@ import java.util.List;
 
 public interface IRepository<T> {
 
+    void merge (T entity);
+
     void create(T entity);
 
     List<T> findAll();

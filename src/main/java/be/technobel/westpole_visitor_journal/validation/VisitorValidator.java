@@ -1,20 +1,15 @@
 package be.technobel.westpole_visitor_journal.validation;
 
-import be.technobel.westpole_visitor_journal.repository.VisitorEntity;
 import org.junit.BeforeClass;
-import org.junit.Test;
 
-import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
-import java.util.Set;
-
-import static org.junit.Assert.assertEquals;
 
 public class VisitorValidator {
 
     private static Validator validator;
+
 
     @BeforeClass
     public static void setup() {
@@ -23,37 +18,85 @@ public class VisitorValidator {
         validator = factory.getValidator();
     }
 
-    @Test
-    public void fNameNotNull() {
-
-        VisitorEntity visitor = new VisitorEntity();
-        visitor.setfName("").setlName("ppppppppppp").setlPLate("").setContactName(
-                "ppppppppppppppppppppppppppppppppppppppppppppppp").setCompanyName("p");
-
-        Set<ConstraintViolation<VisitorEntity>> constraintViolations = validator.validate(visitor);
-
-        assertEquals(1, constraintViolations.size());
-        assertEquals(
-                "may not be null",
-                constraintViolations.iterator().next().getMessage()
-                    );
-    }
-
-    //@Todo
-
 //    @Test
 //    public void fNameNotNull() {
 //
+//        VisitorEntity visitor = new VisitorEntity();
+//        visitor.setfName("")
+//                .setlName("Stoffels")
+//                .setlPLate("")
+//                .setContactName("Guy")
+//                .setCompanyName("Coca-Cola")
+//                .setInTime(LocalTime.now());
+//
+//        Set<ConstraintViolation<VisitorEntity>> constraintViolations = validator.validate(visitor);
+//
+//        assertEquals(1, constraintViolations.size());
+//        assertEquals(
+//                "may not be null",
+//                constraintViolations.iterator().next().getMessage()
+//                    );
+//    }
+//
+//
+//    @Test
+//    public void lNameNotNull() {
+//
+//        VisitorEntity visitor = new VisitorEntity();
+//        visitor.setfName("Steeve")
+//                .setlName("")
+//                .setlPLate("1-aaa-111")
+//                .setContactName("Guy")
+//                .setCompanyName("Coca-Cola")
+//                .setInTime(LocalTime.now());
+//
+//        Set<ConstraintViolation<VisitorEntity>> constraintViolations = validator.validate(visitor);
+//
+//        assertEquals(1, constraintViolations.size());
+//        assertEquals(
+//                "may not be null",
+//                constraintViolations.iterator().next().getMessage()
+//                    );
 //    }
 //
 //    @Test
-//    public void fNameNotNull() {
+//    public void companyNameNotNull() {
 //
+//        VisitorEntity visitor = new VisitorEntity();
+//        visitor.setfName("Steeve")
+//                .setlName("Stoffels")
+//                .setlPLate("1-aaa-111")
+//                .setContactName("Guy")
+//                .setCompanyName("")
+//                .setInTime(LocalTime.now());;
+//
+//        Set<ConstraintViolation<VisitorEntity>> constraintViolations = validator.validate(visitor);
+//
+//        assertEquals(1, constraintViolations.size());
+//        assertEquals(
+//                "may not be null",
+//                constraintViolations.iterator().next().getMessage()
+//                    );
 //    }
 //
 //    @Test
-//    public void fNameNotNull() {
+//    public void inTimeNotNull() {
 //
+//        VisitorEntity visitor = new VisitorEntity();
+//        visitor.setfName("")
+//                .setlName("Stoffels")
+//                .setlPLate("")
+//                .setContactName("Guy")
+//                .setInTime(LocalTime.now())
+//                .setCompanyName("Coca-Cola");
+//
+//        Set<ConstraintViolation<VisitorEntity>> constraintViolations = validator.validate(visitor);
+//
+//        assertEquals(1, constraintViolations.size());
+//        assertEquals(
+//                "may not be null",
+//                constraintViolations.iterator().next().getMessage()
+//                    );
 //    }
 
 
