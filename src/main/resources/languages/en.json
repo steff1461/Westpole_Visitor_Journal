@@ -52,7 +52,7 @@
             "companyLabel": "Enter the name of your company :",
             "licencePlateLabel": "Enter your licence plate :",
             "gdpr": "You consent to the storage of your sign-in data",
-            "contactLabel": "*Enter the first name of the Westpole employee you are visting (optional) :",
+            "contactLabel": "*Enter the first name of the Westpole employee you are visiting (optional) :",
             "errorFirstName": "First name must be between 2 and 16 characters, and can't be null",
             "errorLastName": "First name must be between 2 and 40 characters, and can't be null",
             "errorCompany": "Company must be 40 characters or less",

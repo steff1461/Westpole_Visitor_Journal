@@ -1,6 +1,6 @@
 package be.technobel.westpole_visitor_journal.repository;
 
-import be.technobel.westpole_visitor_journal.repository.entity.VisitorEntity;
+import be.technobel.westpole_visitor_journal.model.entity.VisitorEntity;
 import be.technobel.westpole_visitor_journal.utils.UtilsHiber;
 import io.vertx.core.json.JsonObject;
 

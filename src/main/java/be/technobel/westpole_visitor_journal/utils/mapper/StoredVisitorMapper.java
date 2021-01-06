@@ -1,9 +1,7 @@
 package be.technobel.westpole_visitor_journal.utils.mapper;
 
-import be.technobel.westpole_visitor_journal.repository.entity.StoredVisitorEntity;
-import be.technobel.westpole_visitor_journal.service.model.StoredVisitorDto;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import be.technobel.westpole_visitor_journal.model.dto.StoredVisitorDto;
+import be.technobel.westpole_visitor_journal.model.entity.StoredVisitorEntity;
 import io.vertx.core.json.JsonObject;
 
 public class StoredVisitorMapper {
@@ -48,20 +46,4 @@ public class StoredVisitorMapper {
 
         return dTo;
     }
-
-    public static String mapAsJson(StoredVisitorDto dto) {
-
-        ObjectMapper mapper = new ObjectMapper();
-
-        try {
-
-            return mapper.writeValueAsString(dto);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-
-        }
-        return null;
-    }
-
-
 }

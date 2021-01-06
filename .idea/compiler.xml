@@ -6,8 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Westpole_Visitor_Journal" />
         <module name="be.technobel.westpole_visitor_journal" />
+        <module name="Westpole_Visitor_Journal" />
       </profile>
     </annotationProcessing>
   </component>

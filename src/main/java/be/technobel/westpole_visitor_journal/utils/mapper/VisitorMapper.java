@@ -1,11 +1,9 @@
 package be.technobel.westpole_visitor_journal.utils.mapper;
 
-import be.technobel.westpole_visitor_journal.repository.entity.StoredVisitorEntity;
-import be.technobel.westpole_visitor_journal.repository.entity.VisitorEntity;
-import be.technobel.westpole_visitor_journal.service.model.StoredVisitorDto;
-import be.technobel.westpole_visitor_journal.service.model.VisitorDto;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import be.technobel.westpole_visitor_journal.model.dto.StoredVisitorDto;
+import be.technobel.westpole_visitor_journal.model.dto.VisitorDto;
+import be.technobel.westpole_visitor_journal.model.entity.StoredVisitorEntity;
+import be.technobel.westpole_visitor_journal.model.entity.VisitorEntity;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -43,21 +41,6 @@ public class VisitorMapper {
 
         return entity;
     }
-
-    public static String mapAsJson(VisitorDto dto) {
-
-        ObjectMapper mapper = new ObjectMapper();
-
-        try {
-
-            return mapper.writeValueAsString(dto);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-
-        }
-        return null;
-    }
-
     public static VisitorDto mapFromStoredV(StoredVisitorDto svDto) {
 
         VisitorDto dTo = new VisitorDto();

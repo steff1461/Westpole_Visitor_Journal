@@ -1,8 +1,8 @@
 package be.technobel.westpole_visitor_journal.service;
 
+import be.technobel.westpole_visitor_journal.model.dto.StoredVisitorDto;
+import be.technobel.westpole_visitor_journal.model.entity.StoredVisitorEntity;
 import be.technobel.westpole_visitor_journal.repository.StoredVisitorRepo;
-import be.technobel.westpole_visitor_journal.repository.entity.StoredVisitorEntity;
-import be.technobel.westpole_visitor_journal.service.model.StoredVisitorDto;
 import be.technobel.westpole_visitor_journal.utils.mapper.StoredVisitorMapper;
 import io.vertx.core.json.JsonObject;
 

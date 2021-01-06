@@ -1,8 +1,8 @@
 package be.technobel.westpole_visitor_journal.service;
 
+import be.technobel.westpole_visitor_journal.model.dto.VisitorDto;
+import be.technobel.westpole_visitor_journal.model.entity.StoredVisitorEntity;
 import be.technobel.westpole_visitor_journal.repository.VisitorRepo;
-import be.technobel.westpole_visitor_journal.repository.entity.StoredVisitorEntity;
-import be.technobel.westpole_visitor_journal.service.model.VisitorDto;
 import be.technobel.westpole_visitor_journal.utils.mapper.StoredVisitorMapper;
 import be.technobel.westpole_visitor_journal.utils.mapper.VisitorMapper;
 import io.vertx.core.json.JsonObject;
@@ -13,7 +13,10 @@ import java.time.temporal.IsoFields;
 import java.time.temporal.TemporalAdjusters;
 import java.time.temporal.TemporalField;
 import java.time.temporal.WeekFields;
+import java.util.List;
 import java.util.Locale;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class VisitorService {
 
@@ -21,132 +24,101 @@ public class VisitorService {
 
     public VisitorService() {
 
-
     }
 
     //POST
 
-    public String signOutByName(JsonObject object){
+    public Optional<String> signOutByName(JsonObject object) {
 
-        if (repository.signOutByName(object)) return object.getString("lName");
-        else return "NONE";
+        if (repository.signOutByName(object)) return Optional.of(object.getString("lName"));
+        else return Optional.empty();
     }
 
-    public String signOutVisitor(JsonObject object) {
+    public Optional<String> signOutVisitor(JsonObject object) {
 
-        if (repository.signOutVisitor(object)) return object.getString("fName");
-        else return "NONE";
-
+        if (repository.signOutVisitor(object)) return Optional.of(object.getString("fName"));
+        else return Optional.empty();
     }
 
 
-    public String createNewVisitor( StoredVisitorEntity svEntity,String contactName) {
+    public Optional<String> createNewVisitor(StoredVisitorEntity svEntity, String contactName) {
 
         VisitorDto dTo = VisitorMapper.mapFromStoredV(StoredVisitorMapper.toDto(svEntity));
         dTo.setContactName(contactName);
-        repository.merge(VisitorMapper.toEntity(dTo,svEntity));
-        return dTo.getfName();
+        repository.merge(VisitorMapper.toEntity(dTo, svEntity));
+        return Optional.of(dTo.getfName());
     }
 
     //GET
 
-    public StringBuilder findAll() {
+    public Optional<List<VisitorDto>> findAll() {
 
-        StringBuilder sBuilder = new StringBuilder();
-        sBuilder.append("[");
+        List<VisitorDto> visitors =
+                repository
+                        .findAll()
+                        .stream()
+                        .map(VisitorMapper::toDto)
+                        .collect(Collectors.toList());
 
-        repository.findAll()
-                .stream()
-                .map(VisitorMapper::toDto)
-                .map(VisitorMapper::mapAsJson)
-                .forEach(s -> sBuilder.append(s).append(","));
-
-        sBuilder.deleteCharAt(sBuilder.length() - 1);
-        sBuilder.append("]");
-        return sBuilder;
+        return Optional.of(visitors);
     }
 
-    public StringBuilder findAllByMonth(LocalDate date) {
+    public Optional<List<VisitorDto>> findAllByMonth(LocalDate date) {
 
-        StringBuilder sBuilder = new StringBuilder();
-        sBuilder.append("[");
+        List<VisitorDto> visitors =
+                repository
+                        .findAllByMonth(date).stream()
+                        .map(VisitorMapper::toDto)
+                        .collect(Collectors.toList());
 
-        repository.findAllByMonth(date)
-                .stream()
-                .map(VisitorMapper::toDto)
-                .map(VisitorMapper::mapAsJson)
-                .forEach(s -> sBuilder.append(s).append(","));
-
-        sBuilder.deleteCharAt(sBuilder.length() - 1);
-        sBuilder.append("]");
-
-        return sBuilder;
+        return Optional.of(visitors);
     }
 
-    public StringBuilder findAllByWeek(LocalDate date) {
+    public Optional<List<VisitorDto>> findAllByWeek(LocalDate date) {
 
-        StringBuilder sBuilder = new StringBuilder();
-        sBuilder.append("[");
+        List<VisitorDto> visitors =
+                repository
+                        .findAllByWeek(findStartingWeek(date)).stream()
+                        .map(VisitorMapper::toDto)
+                        .collect(Collectors.toList());
 
-        repository.findAllByWeek(findStartingWeek(date))
-                .stream()
-                .map(VisitorMapper::toDto)
-                .map(VisitorMapper::mapAsJson)
-                .forEach(s -> sBuilder.append(s).append(","));
-
-        sBuilder.deleteCharAt(sBuilder.length() - 1);
-        sBuilder.append("]");
-
-        return sBuilder;
+        return Optional.of(visitors);
     }
 
-    public StringBuilder findAllByDay(LocalDate date) {
+    public Optional<List<VisitorDto>> findAllByDay(LocalDate date) {
 
-        StringBuilder sBuilder = new StringBuilder();
-        sBuilder.append("[");
+        List<VisitorDto> visitors =
+                repository
+                        .findAllByDay(date)
+                        .stream()
+                        .map(VisitorMapper::toDto)
+                        .collect(Collectors.toList());
 
-        repository.findAllByDay(date)
-                .stream()
-                .map(VisitorMapper::toDto)
-                .map(VisitorMapper::mapAsJson)
-                .forEach(s -> sBuilder.append(s).append(","));
-
-        sBuilder.deleteCharAt(sBuilder.length() - 1);
-        sBuilder.append("]");
-
-        return sBuilder;
+        return Optional.of(visitors);
     }
 
-    public StringBuilder findAllCurrent() {
+    public Optional<List<VisitorDto>> findAllCurrent() {
 
-        StringBuilder sBuilder = new StringBuilder();
-        sBuilder.append("[");
-        repository.findAllByDay(LocalDate.now())
-                .stream()
-                .filter(entity -> entity.getOutTime() == null)
-                .map(VisitorMapper::toDto)
-                .map(VisitorMapper::mapAsJson)
-                .forEach(s -> sBuilder.append(s).append(","));
+        List<VisitorDto> visitors =
+                repository
+                        .findAllByDay(LocalDate.now())
+                        .stream()
+                        .filter(visitorEntity -> visitorEntity.getOutTime()==null)
+                        .map(VisitorMapper::toDto)
+                        .collect(Collectors.toList());
 
-        sBuilder.deleteCharAt(sBuilder.length() - 1);
-        sBuilder.append("]");
-        return sBuilder;
+        return Optional.of(visitors);
     }
 
 
-    public StringBuilder findAllByCompany(String companyName) {
-        StringBuilder sBuilder = new StringBuilder();
-        sBuilder.append("[");
+    public Optional<List<VisitorDto>> findAllByCompany(String companyName) {
+        List<VisitorDto> visitors =
+                repository
+                        .findAllByCompany(companyName).stream()
+                        .map(VisitorMapper::toDto)
+                        .collect(Collectors.toList());
 
-        repository.findAllByCompany(companyName)
-                .stream()
-                .map(VisitorMapper::toDto)
-                .map(VisitorMapper::mapAsJson)
-                .forEach(s -> sBuilder.append(s).append(","));
-
-        sBuilder.deleteCharAt(sBuilder.length() - 1);
-        sBuilder.append("]");
-        return sBuilder;
+        return Optional.of(visitors);
     }
 
     private LocalDate findStartingWeek(LocalDate date) {
@@ -158,6 +130,4 @@ public class VisitorService {
                 .with(IsoFields.WEEK_OF_WEEK_BASED_YEAR, weekNumber)
                 .with(TemporalAdjusters.previousOrSame(DayOfWeek.MONDAY));
     }
-
-
 }

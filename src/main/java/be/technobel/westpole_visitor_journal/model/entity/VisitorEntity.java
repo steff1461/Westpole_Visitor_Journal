@@ -1,7 +1,8 @@
-package be.technobel.westpole_visitor_journal.repository.entity;
+package be.technobel.westpole_visitor_journal.model.entity;
 
 import lombok.*;
 import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;

@@ -1,6 +1,7 @@
-package be.technobel.westpole_visitor_journal.repository.entity;
+package be.technobel.westpole_visitor_journal.model.entity;
 
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 import org.mindrot.jbcrypt.BCrypt;
 
 import javax.persistence.*;
@@ -26,10 +27,11 @@ public class UserEntity implements Serializable {
     private String userName;
 
     @NotNull
-    @Column(length = 15,nullable = false)
+    @Column(length = 250,nullable = false)
     private String password;
 
     @NotNull
+    @CreationTimestamp
     @Column(name = "created_at", nullable = false)
     private LocalDate creationDate;
 

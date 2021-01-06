@@ -1,5 +1,6 @@
-package be.technobel.westpole_visitor_journal.controller;
+package be.technobel.westpole_visitor_journal;
 
+import be.technobel.westpole_visitor_journal.controller.HttpApplication;
 import io.vertx.core.DeploymentOptions;
 import io.vertx.core.Vertx;
 

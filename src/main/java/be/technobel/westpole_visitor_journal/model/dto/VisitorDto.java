@@ -1,4 +1,4 @@
-package be.technobel.westpole_visitor_journal.service.model;
+package be.technobel.westpole_visitor_journal.model.dto;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
