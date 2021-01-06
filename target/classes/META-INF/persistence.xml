@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+
+    <persistence-unit name="be.technobel.westpole_visitor_journal">
+
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+
+            <property name="javax.persistence.jdbc.url"
+                      value="jdbc:mysql://localhost:3308/visitor_log?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;
+            useLegacyDatetimeCode=false&amp;serverTimezone=Europe/Paris"/>
+
+            <!--server-->
+            <!--value="jdbc:mysql://localhost:3306/visitor_log?useUnicode=true-->
+            <!--&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=Europe/Paris&amp;autoReconnect=true"/>-->
+
+            <!--Local-->
+
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.password" value=""/>
+            <!--server-->
+            <!--<property name="javax.persistence.jdbc.password" value="StageFront2020!"/>-->
+            <property name="cache.provider_class" value=" org.hibernate.cache.internal.NoCachingRegionFactory"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+
+<!--            &lt;!&ndash; c3p0&ndash;&gt;-->
+<!--            <property name="hibernate.c3p0.max_size" value="100"/>-->
+<!--            <property name="hibernate.c3p0.min_size" value="10"/>-->
+<!--            <property name="hibernate.c3p0.idle_test_period" value="500"/>-->
+<!--            <property name="hibernate.c3p0.acquire_increment" value="1"/>-->
+<!--            <property name="hibernate.c3p0.testConnectionOnCheckout" value="true"/>-->
+        </properties>
+
+    </persistence-unit>
+
+</persistence>
+

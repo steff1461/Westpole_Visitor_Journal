@@ -1,0 +1,64 @@
+{
+    "home" : {
+        "index" : {
+            "signInTitle" : "Sign in",
+            "signInDescription" : "Touchez ici pour vous connecter !",
+            "logOutTitle" : "Sortir ?",
+            "logOutDescription" : "Touchez ici pour vous déconnecter !"
+        }
+    },
+    "loggedIn" : {
+        "loggedIn" : {
+            "title" : "Connecté",
+            "loggedInMessage" : " Bienvenue, "
+        }
+    },
+    "loggedOut" : {
+        "loggedOut" : {
+            "title" : "Déconnecté",
+            "loggedOutMessage" : " est maintenant déconnecté !"
+        }
+    },
+    "logList" : {
+        "logList" : {
+            "title" : "liste des journaux",
+            "selectLogLabel" : "Choisissez une période de temps",
+            "employeeFormButton" : "soumettre",
+            "firstNameColhead" : "prénom",
+            "lastNameColhead" : "nom de famille",
+            "companyColhead" : "société",
+            "licencePlateColhead" : "plaque d'immatriculation",
+            "contactColhead" : "contact",
+            "dateColhead" : "date",
+            "timeInColhead" : "Arrivée",
+            "timeOutColhead" : "Exit"
+        }
+    },
+    "logOut" : {
+        "logOut" : {
+            "title" : "Déconnexion",
+            "pageTitle" : "Veuillez entrer vos informations pour vous déconnecter",
+            "firstNameLabel" : "Entrez votre prénom :",
+            "lastNameLabel" : "Saisissez votre nom de famille :",
+            "submitButton" : "Envoyer"
+        }
+    },
+    "signIn" : {
+        "signIn" : {
+            "title" : "S'inscrire !",
+            "pageTitle" : "Veuillez entrer vos informations pour vous connecter",
+            "firstNameLabel" : "Entrez votre prénom :",
+            "lastNameLabel" : "Saisissez votre nom de famille :",
+            "companyLabel" : "*Entrer le nom de votre entreprise (facultatif) :",
+            "licencePlateLabel" : "*Entrer votre plaque d'immatriculation (facultatif) :",
+            "gdpr" : "Vous consentez au stockage de vos données d'identification",
+            "contactLabel" : "*Entrer le prénom de l'employé de Westpole que vous visitez (facultatif) :",
+            "errorFirstName" : "Le prénom doit comporter entre 2 et 16 caractères, et ne peut être nul",
+            "errorLastName" : "Le prénom doit comporter entre 2 et 40 caractères, et ne peut être nul",
+            "errorCompany" : "Société doit comporter 40 caractères ou moins",
+            "errorLicencePlate" : "La plaque d'immatriculation doit comporter 10 caractères ou moins",
+            "errorContactName" : "Le nom du contact doit comporter 60 caractères ou moins",
+            "errorGdpr" : "Vous devez consentir à ces conditions pour continuer"
+        }
+    }
+}

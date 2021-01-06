@@ -1,0 +1,65 @@
+{
+    "home": {
+        "index": {
+            "signInTitle": "Aanmelden",
+            "signInDescription": "Raak hier aan om in te loggen!",
+            "logOutTitle": "Uitgaan ?",
+            "logOutDescription": "Raak hier aan om uit te loggen!"
+        }
+    },
+    "loggedIn": {
+        "loggedIn": {
+            "title": "Ingelogd",
+            "loggedInMessage": "is nu ingelogd!"
+        }
+    },
+    "loggedOut": {
+        "loggedOut": {
+            "title": "Uitgelogd",
+            "loggedOutMessage": " is nu uitgelogd!"
+        }
+    },
+    "logList": {
+        "logList": {
+            "title": "lijst van de logboeken",
+            "selectLogLabel": "Kies een periode",
+            "employeeFormButton": "indienen",
+            "firstNameColhead": "voornaam",
+            "lastNameColhead": "achternaam",
+            "companyColhead": "bedrijf",
+            "licencePlateColhead": "kentekenplaat",
+            "contactColhead": "contact",
+            "dateColhead": "date",
+            "timeInColhead": "Aankomst",
+            "timeOutColhead": "Exit"
+        }
+    },
+    "logOut": {
+        "logOut": {
+            "title": "Uitloggen",
+            "pageTitle": "Vul uw gegevens in om uit te loggen",
+            "firstNameLabel": "Vul uw voornaam in :",
+            "lastNameLabel": "Vul uw achternaam in :",
+            "submitButton": "Verzenden"
+        }
+    },
+    "signIn": {
+        "signIn": {
+            "title": "Aanmelden!",
+            "pageTitle": "Vul uw gegevens in om in te loggen",
+            "firstNameLabel": "Vul uw voornaam in :",
+            "lastNameLabel": "Vul uw achternaam in :",
+            "companyLabel": "*Voer de naam van uw bedrijf in (optioneel) :",
+            "licencePlateLabel": "*Voer uw nummerplaat in (optioneel) :",
+            "gdpr": "U gaat akkoord met de opslag van uw aanmeldingsgegevens",
+            "contactLabel": "*Voer de voornaam in van de Westpoolmedewerker die u bezoekt (optioneel) :",
+            "errorFirstName": "Voornaam moet tussen 2 en 16 karakters zijn, en kan niet ongeldig zijn",
+            "errorLastName": "Voornaam moet tussen 2 en 40 karakters zijn, en kan niet nietig zijn",
+            "errorCompany": "Bedrijf moet 40 tekens of minder zijn",
+            "errorLicencePlate": "Kentekenplaat moet 10 tekens of minder zijn",
+            "errorContactName": "Contactnaam moet 60 of minder tekens zijn",
+            "errorGdpr": "U moet instemmen met deze voorwaarden om verder te kunnen gaan."
+        }
+    }
+}
+
